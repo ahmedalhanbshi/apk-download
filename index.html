@@ -1,38 +1,133 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>تحميل التطبيق</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; margin:0; background:#f6f7fb; color:#111;}
-    .wrap{max-width:720px; margin:0 auto; padding:32px 16px;}
-    .card{background:#fff; border:1px solid #e7e7ef; border-radius:16px; padding:24px; box-shadow:0 6px 20px rgba(0,0,0,.06)}
-    h1{margin:0 0 8px; font-size:28px}
-    p{margin:8px 0 0; line-height:1.8; color:#333}
-    .btn{display:inline-block; margin-top:16px; padding:12px 18px; border-radius:12px; background:#111; color:#fff; text-decoration:none}
-    .note{margin-top:14px; font-size:14px; color:#666}
-    .footer{margin-top:16px; font-size:13px; color:#777}
-    code{background:#f1f2f6; padding:2px 6px; border-radius:6px}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>تحميل تطبيق حصن يومك</title>
+
+<style>
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  margin:0;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color:#fff;
+}
+
+.wrap{
+  max-width:750px;
+  margin:0 auto;
+  padding:40px 18px;
+}
+
+.card{
+  background:#111827;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+h1{
+  margin:0 0 6px;
+  font-size:30px;
+}
+
+.version{
+  display:inline-block;
+  margin-top:6px;
+  padding:6px 12px;
+  background:#22c55e;
+  border-radius:20px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.meta{
+  margin-top:12px;
+  font-size:14px;
+  color:#cbd5e1;
+}
+
+.features{
+  margin-top:20px;
+  padding:16px;
+  background:#0f172a;
+  border-radius:14px;
+  line-height:1.8;
+}
+
+.features h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+
+.btn{
+  display:block;
+  text-align:center;
+  margin-top:25px;
+  padding:14px;
+  border-radius:14px;
+  background:#22c55e;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#16a34a;
+}
+
+.note{
+  margin-top:15px;
+  font-size:13px;
+  color:#94a3b8;
+  text-align:center;
+}
+
+.footer{
+  margin-top:25px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>تحميل تطبيقك</h1>
-      <p>اضغط زر التحميل لتثبيت التطبيق على أندرويد.</p>
+<div class="wrap">
+  <div class="card">
 
-      <!-- غيّر اسم الملف هنا إذا مختلف -->
-      <a class="btn" href="app-release.apk" download>تحميل APK</a>
+    <h1>تطبيق حصن يومك</h1>
+    <div class="version">الإصدار v1.0.1</div>
 
-      <div class="note">
-        ملاحظة: قد تحتاج لتفعيل <b>السماح بالتثبيت من مصادر غير معروفة</b> عند التثبيت.
-      </div>
-
-      <div class="footer">
-        إذا ما بدأ التحميل، افتح الرابط من متصفح كروم على أندرويد.
-      </div>
+    <div class="meta">
+      📅 آخر تحديث: 19 مايو 2026<br>
+      📦 حجم التطبيق: 17.8 MB<br>
+      📱 متوافق مع: أندرويد 7 فما فوق
     </div>
+
+    <div class="features">
+      <h3>✨ ما الجديد في هذا الإصدار:</h3>
+      • تحسين سرعة التطبيق<br>
+      • إصلاح مشكلة عرض رقم النسخة<br>
+      • تحسين تصميم صفحة الإعدادات<br>
+      • تحسين نظام التحديث الداخلي
+    </div>
+
+    <a class="btn" href="app-release.apk" download>
+      ⬇ تحميل التطبيق الآن
+    </a>
+
+    <div class="note">
+      قد تحتاج لتفعيل "السماح بالتثبيت من مصادر غير معروفة".
+    </div>
+
+    <div class="footer">
+      © 2026 حصن يومك — جميع الحقوق محفوظة
+    </div>
+
   </div>
+</div>
 </body>
 </html>
