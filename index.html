@@ -7,120 +7,138 @@
 
 <style>
 body{
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
   margin:0;
-  background: linear-gradient(135deg,#0f172a,#1e293b);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background: linear-gradient(135deg,#6a11cb,#2575fc);
   color:#fff;
 }
 
-.wrap{
-  max-width:750px;
+.container{
+  max-width:700px;
   margin:0 auto;
-  padding:40px 18px;
+  padding:40px 20px;
+  text-align:center;
 }
 
 .card{
-  background:#111827;
-  border-radius:20px;
+  background:rgba(0,0,0,.25);
+  backdrop-filter: blur(10px);
   padding:30px;
-  box-shadow:0 15px 40px rgba(0,0,0,.4);
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+.logo{
+  width:130px;
+  height:130px;
+  border-radius:30px;
+  object-fit:cover;
+  margin-bottom:20px;
+  background:#fff;
+  padding:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 h1{
-  margin:0 0 6px;
+  margin:0;
   font-size:30px;
 }
 
 .version{
+  margin-top:8px;
   display:inline-block;
-  margin-top:6px;
-  padding:6px 12px;
   background:#22c55e;
+  padding:6px 14px;
   border-radius:20px;
   font-size:14px;
   font-weight:600;
 }
 
 .meta{
-  margin-top:12px;
+  margin-top:15px;
   font-size:14px;
-  color:#cbd5e1;
+  color:#e2e8f0;
+  line-height:1.8;
 }
 
 .features{
   margin-top:20px;
-  padding:16px;
-  background:#0f172a;
-  border-radius:14px;
-  line-height:1.8;
+  background:rgba(255,255,255,.08);
+  padding:18px;
+  border-radius:15px;
+  text-align:right;
+  line-height:1.9;
+  font-size:14px;
 }
 
 .features h3{
-  margin:0 0 8px;
-  font-size:18px;
+  margin-top:0;
+  margin-bottom:8px;
 }
 
-.btn{
+.download-btn{
   display:block;
-  text-align:center;
   margin-top:25px;
-  padding:14px;
-  border-radius:14px;
+  padding:15px;
+  border-radius:15px;
   background:#22c55e;
-  color:#fff;
-  font-size:16px;
+  font-size:17px;
   font-weight:bold;
+  color:#fff;
   text-decoration:none;
   transition:.3s;
 }
 
-.btn:hover{
+.download-btn:hover{
   background:#16a34a;
+  transform:scale(1.03);
 }
 
 .note{
   margin-top:15px;
   font-size:13px;
-  color:#94a3b8;
-  text-align:center;
+  color:#cbd5e1;
 }
 
 .footer{
-  margin-top:25px;
-  text-align:center;
+  margin-top:30px;
   font-size:12px;
-  color:#64748b;
+  color:#e2e8f0;
 }
 </style>
 </head>
 
 <body>
-<div class="wrap">
+
+<div class="container">
   <div class="card">
+
+    <!-- صورة التطبيق -->
+    <img src="logoapp.png" class="logo" alt="شعار التطبيق">
 
     <h1>تطبيق حصن يومك</h1>
     <div class="version">الإصدار v1.0.1</div>
 
     <div class="meta">
-      📅 آخر تحديث: 19 مايو 2026<br>
-      📦 حجم التطبيق: 17.8 MB<br>
-      📱 متوافق مع: أندرويد 7 فما فوق
+      📅 آخر تحديث: 19 مايو 2026 <br>
+      📦 حجم التطبيق: 17.8 MB <br>
+      📱 يدعم أندرويد 7 فما فوق
     </div>
 
     <div class="features">
       <h3>✨ ما الجديد في هذا الإصدار:</h3>
-      • تحسين سرعة التطبيق<br>
-      • إصلاح مشكلة عرض رقم النسخة<br>
-      • تحسين تصميم صفحة الإعدادات<br>
+      • تحسين سرعة الأداء<br>
+      • إصلاح عرض رقم النسخة<br>
+      • تحسين صفحة الإعدادات<br>
       • تحسين نظام التحديث الداخلي
     </div>
 
-    <a class="btn" href="app-release.apk" download>
+    <a href="app-release.apk" class="download-btn" download>
       ⬇ تحميل التطبيق الآن
     </a>
 
     <div class="note">
-      قد تحتاج لتفعيل "السماح بالتثبيت من مصادر غير معروفة".
+      قد تحتاج لتفعيل "السماح بالتثبيت من مصادر غير معروفة" في جهازك.
     </div>
 
     <div class="footer">
@@ -129,5 +147,6 @@ h1{
 
   </div>
 </div>
+
 </body>
 </html>
