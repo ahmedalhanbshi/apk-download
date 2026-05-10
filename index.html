@@ -1,166 +1,432 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>تحميل تطبيق حصن يومك</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحميل تطبيق حصن يومك</title>
 
-<style>
-body{
-  margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background: linear-gradient(135deg,#6a11cb,#2575fc);
-  color:#fff;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-.container{
-  max-width:700px;
-  margin:0 auto;
-  padding:40px 20px;
-  text-align:center;
-}
+  <style>
+    :root {
+      --gold: #c89b5b;
+      --gold-dark: #a87535;
+      --gold-light: #e3c89d;
+      --bg: #f8f4ee;
+      --card: rgba(255, 255, 255, 0.78);
+      --text: #1f2933;
+      --muted: #7b8189;
+      --border: #eadcc8;
+      --shadow: 0 22px 60px rgba(120, 85, 45, 0.16);
+    }
 
-.card{
-  background:rgba(0,0,0,.25);
-  backdrop-filter: blur(10px);
-  padding:30px;
-  border-radius:25px;
-  box-shadow:0 20px 40px rgba(0,0,0,.3);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.logo{
-  width:130px;
-  height:130px;
-  border-radius:30px;
-  object-fit:cover;
-  margin-bottom:20px;
-  background:#fff;
-  padding:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
+    body {
+      font-family: "Cairo", sans-serif;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(255, 226, 184, 0.8), transparent 35%),
+        linear-gradient(180deg, #fffaf2 0%, #f3ece2 100%);
+      overflow-x: hidden;
+    }
 
-h1{
-  margin:0;
-  font-size:30px;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("hero-mosque.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.16;
+      z-index: -2;
+    }
 
-.version{
-  margin-top:8px;
-  display:inline-block;
-  background:#22c55e;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:14px;
-  font-weight:600;
-}
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.7), rgba(248,244,238,.96)),
+        url("pattern.png");
+      background-size: cover, 600px;
+      opacity: 0.9;
+      z-index: -1;
+    }
 
-.meta{
-  margin-top:15px;
-  font-size:14px;
-  color:#e2e8f0;
-  line-height:1.8;
-}
+    .page {
+      width: min(1100px, 92%);
+      margin: auto;
+      padding: 42px 0;
+    }
 
-.features{
-  margin-top:20px;
-  background:rgba(255,255,255,.08);
-  padding:18px;
-  border-radius:15px;
-  text-align:right;
-  line-height:1.9;
-  font-size:14px;
-}
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
 
-.features h3{
-  margin-top:0;
-  margin-bottom:8px;
-}
+    .card {
+      width: min(720px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 38px;
+      padding: 42px 34px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+    }
 
-.download-btn{
-  display:block;
-  margin-top:25px;
-  padding:15px;
-  border-radius:15px;
-  background:#22c55e;
-  font-size:17px;
-  font-weight:bold;
-  color:#fff;
-  text-decoration:none;
-  transition:.3s;
-}
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(200, 155, 91, 0.12);
+      top: -120px;
+      right: -100px;
+    }
 
-.download-btn:hover{
-  background:#16a34a;
-  transform:scale(1.03);
-}
+    .logo {
+      width: 132px;
+      height: 132px;
+      border-radius: 34px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 35px rgba(130, 90, 45, 0.18);
+      border: 1px solid #eadac2;
+    }
 
-.note{
-  margin-top:15px;
-  font-size:13px;
-  color:#cbd5e1;
-}
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
 
-.footer{
-  text-align:center;
-  margin-top:25px;
-  padding:15px 0;
-  color:white;
-  font-size:14px;
-  opacity:0.8;
-  direction:rtl;
-}
-</style>
+    .tagline {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .version {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff7ec;
+      color: var(--gold-dark);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .meta span {
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px 16px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: min(460px, 100%);
+      padding: 18px 28px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #d8ad6e, #b77a36);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 16px 35px rgba(184, 122, 54, 0.28);
+      transition: 0.25s ease;
+      margin-bottom: 18px;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 45px rgba(184, 122, 54, 0.36);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .features {
+      display: grid;
+      gap: 12px;
+      text-align: right;
+      margin-bottom: 32px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: #39424e;
+      font-weight: 700;
+    }
+
+    .feature .icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: #fff3df;
+      color: var(--gold-dark);
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .phone {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 10px;
+      box-shadow: 0 14px 35px rgba(120, 85, 45, 0.12);
+    }
+
+    .phone img {
+      width: 100%;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 0 8px;
+      font-weight: 600;
+    }
+
+    .install-help {
+      margin-top: 22px;
+      background: #fff8ee;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      text-align: right;
+      display: none;
+    }
+
+    .install-help.active {
+      display: block;
+      animation: fade .25s ease;
+    }
+
+    .install-help h3 {
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .install-help ol {
+      padding-right: 22px;
+      color: var(--muted);
+      line-height: 2;
+      font-weight: 700;
+    }
+
+    .help-btn {
+      border: none;
+      background: transparent;
+      color: var(--gold-dark);
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 6px;
+      font-size: 15px;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        width: 92%;
+        padding: 22px 0;
+      }
+
+      .card {
+        padding: 32px 20px;
+        border-radius: 30px;
+      }
+
+      .logo {
+        width: 112px;
+        height: 112px;
+      }
+
+      .tagline {
+        font-size: 18px;
+      }
+
+      .screens {
+        grid-template-columns: 1fr;
+      }
+
+      .meta span {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
+    <section class="hero">
+      <div class="card">
 
-<div class="container">
-  <div class="card">
+        <img class="logo" src="LOGONEW.png" alt="شعار حصن يومك">
 
-    <!-- شعار التطبيق -->
-    <img src="logoapp.png" class="logo" alt="شعار تطبيق حصن يومك">
+        <h1>تطبيق حصن يومك</h1>
 
-    <h1>تطبيق حصن يومك</h1>
+        <p class="tagline">
+          لتكن طاعاتك حصنًا،<br>
+          وليبقَ قلبك مطمئنًا.
+        </p>
 
-    <div class="version">
-      الإصدار v1.0.4
-    </div>
+        <div class="version">الإصدار v1.0.4</div>
 
-    <div class="meta">
-      📅 آخر تحديث: 28 مايو 2026 <br>
-      📦 حجم التطبيق: 58.4 MB <br>
-      📱 يدعم أندرويد 7 فما فوق
-    </div>
+        <div class="meta">
+          <span>📅 آخر تحديث: 28 مايو 2026</span>
+          <span>📦 حجم التطبيق: 58.4 MB</span>
+          <span>📱 يدعم أندرويد 7 فما فوق</span>
+        </div>
 
-    <div class="features">
-      <h3>✨ الجديد في هذا الإصدار:</h3>
+        <a class="download-btn" href="app-release.apk" download>
+          تحميل التطبيق الآن
+          <span>⬇</span>
+        </a>
 
-      • تحسين سرعة التطبيق وأداء أفضل<br>
-      • إصلاح مشاكل الأذكار والهوامش<br>
-      • تطوير نظام التحديث الداخلي ليعمل بسلاسة أكبر<br>
-      • إضافة تنبيهات ذكية للأذكار حسب الوقت والموقع<br>
+        <p class="note">
+          قد تحتاج لتفعيل “السماح بالتثبيت من مصادر غير معروفة” من إعدادات جهازك.
+        </p>
 
-    </div>
+        <button class="help-btn" onclick="toggleHelp()">
+          طريقة التثبيت على أندرويد
+        </button>
 
-    <!-- زر التحميل -->
-    <a href="app-release.apk"
-       download="HisnYawmk.apk"
-       class="download-btn">
+        <div id="installHelp" class="install-help">
+          <h3>خطوات التثبيت</h3>
+          <ol>
+            <li>اضغط على زر تحميل التطبيق.</li>
+            <li>بعد انتهاء التحميل، افتح ملف APK.</li>
+            <li>فعّل السماح بالتثبيت من هذا المصدر إذا طُلب منك.</li>
+            <li>اضغط تثبيت، ثم افتح التطبيق.</li>
+          </ol>
+        </div>
 
-       ⬇ تحميل التطبيق الآن
+        <br><br>
 
-    </a>
+        <h2 class="section-title">الجديد في هذا الإصدار</h2>
 
-    <div class="note">
-      قد تحتاج لتفعيل "السماح بالتثبيت من مصادر غير معروفة" من إعدادات جهازك.
-    </div>
+        <div class="features">
+          <div class="feature">
+            <span class="icon">✓</span>
+            تحسين سرعة التطبيق وأداء أفضل.
+          </div>
 
-    <div class="footer">
+          <div class="feature">
+            <span class="icon">✓</span>
+            إصلاح مشاكل الأذكار والمواقيت.
+          </div>
+
+          <div class="feature">
+            <span class="icon">✓</span>
+            تطوير نظام التحديث الداخلي ليعمل بسلاسة أكبر.
+          </div>
+
+          <div class="feature">
+            <span class="icon">✓</span>
+            إضافة تنبيهات ذكية للأذكار حسب الوقت والموقع.
+          </div>
+        </div>
+
+        <h2 class="section-title">لمحات من التطبيق</h2>
+
+        <div class="screens">
+          <div class="phone">
+            <img src="screen-home.jpg" alt="واجهة الرئيسية">
+          </div>
+
+          <div class="phone">
+            <img src="screen-tasbeeh.jpg" alt="واجهة التسبيح">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
       © 2026 حصن يومك — جميع الحقوق محفوظة
-    </div>
+    </footer>
+  </main>
 
-  </div>
-</div>
+  <script>
+    function toggleHelp() {
+      const box = document.getElementById("installHelp");
+      box.classList.toggle("active");
+    }
 
+    const downloadBtn = document.querySelector(".download-btn");
+
+    downloadBtn.addEventListener("click", () => {
+      console.log("تم الضغط على زر التحميل");
+    });
+  </script>
 </body>
 </html>
